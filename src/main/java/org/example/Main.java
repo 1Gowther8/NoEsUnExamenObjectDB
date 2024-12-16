@@ -32,11 +32,11 @@ public class Main {
 
 
         /*Historia de usuario 3
-        dataService.añadirComentario(comentario1);
-        dataService.añadirComentario(comentario3);
-        dataService.añadirComentario(comentario2);
-        dataService.añadirComentario(comentario4);
-        */
+        dataService.añadirComentario(comentario1, usuario1);
+        dataService.añadirComentario(comentario3, usuario1);
+        dataService.añadirComentario(comentario2, usuario2);
+        dataService.añadirComentario(comentario4, usuario1);*/
+
 
         /*Historia de usuario 4
         dataService.ListarUsuariosConComentarioConValoracionMaxima();

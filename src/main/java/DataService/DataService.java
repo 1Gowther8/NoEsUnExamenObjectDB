@@ -30,6 +30,7 @@ public class DataService {
             em.getTransaction().begin();
             em.persist(usuario);
             em.getTransaction().commit();
+            System.out.println("Usuario añadido correctamente");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -39,13 +40,15 @@ public class DataService {
         }
     }
 
-    public void añadirComentario(Comentario comentario) {
+    public void añadirComentario(Comentario comentario, Usuario usuario) {
         DataService dataService = new DataService();
         EntityManager em = dataService.getEntityManager();
         try {
             em.getTransaction().begin();
+            comentario.setUsuario(usuario);
             em.persist(comentario);
             em.getTransaction().commit();
+            System.out.println("Comentario añadido correctamente");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -60,6 +63,7 @@ public class DataService {
         EntityManager em = dataService.getEntityManager();
         try {
             List<Comentario> comentarios = em.createQuery("SELECT c FROM Comentario c WHERE c.usuario.correo = :correo", Comentario.class).setParameter("correo", correo).getResultList();
+            System.out.println("Comentarios de " + correo);
             for (Comentario comentario : comentarios) {
                 System.out.println(comentario);
             }
